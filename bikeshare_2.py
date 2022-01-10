@@ -19,7 +19,7 @@ def get_filters():
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         cities = ['chicago','new york city','washington']
-        city = input("Which of these cities would you like to analyze? (Chicago, New York City or Washington): ").casefold()
+        city = input("\nWhich of these cities would you like to analyze? (Chicago, New York City or Washington):\n").casefold()
         if city in cities:
             break
         else:
@@ -29,16 +29,16 @@ def get_filters():
     # get user input for month (all, january, february, ... , june)
     while True:
         months = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
-        month = input("Which month would you like to analyze? (All, January, February, March, April, May, June: ").casefold()
+        month = input("\nWhich month would you like to analyze? (All, January, February, March, April, May, June:\n").casefold()
         if month in months:
             break
         else:
             print("Please choose one of the month stated or check the bike share data without month filter (all)")
-        
+
     # get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-        day = input("Which day would you like to analyze? (All, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday: ").casefold()
+        day = input("\nWhich day would you like to analyze? (All, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday:\n").casefold()
         if day in days:
            break
         else:
@@ -62,31 +62,31 @@ def load_data(city, month, day):
 
     # load data file into dataframe
     df = pd.read_csv(CITY_DATA[city])
-      
+
     # Convert Start Time column to datatime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
-       
+
+
     # Extract month and day of the week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday
-    
+
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month']== month]
-  
+
     # filter by day of week if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
         days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
         day = days.index(day)
         df = df[df['day_of_week'] == day]
-   
+
     return df
 
 
@@ -201,7 +201,7 @@ def user_stats(df):
 
 def display_data(df):
     """Displays raw data upon request"""
-    
+
     while True:
         answers = ['yes', 'y', 'no', 'n']
         answer = input("Do you want to see raw data? (Yes or No): ").casefold()
@@ -210,10 +210,10 @@ def display_data(df):
                 n = 0
                 m = 5
                 print(df.iloc[n:m])
-            break     
+            break
         else:
             print("Please answer yes or no")
-    if  answer == 'yes' or answer == 'y':       
+    if  answer == 'yes' or answer == 'y':
             while True:
                 more_answers = ['yes', 'y', 'no', 'n']
                 more_answer = input("Do you want to see more raw data? (Yes or No): ").casefold()
@@ -222,11 +222,11 @@ def display_data(df):
                         n += 5
                         m += 5
                         print(df.iloc[n:m])
-                    else:    
-                        break  
+                    else:
+                        break
                 else:
-                    print("Please answer yes or no") 
-            
+                    print("Please answer yes or no")
+
 
 def main():
     while True:
