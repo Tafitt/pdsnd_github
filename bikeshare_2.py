@@ -216,7 +216,7 @@ def display_data(df):
     if  answer == 'yes' or answer == 'y':
             while True:
                 more_answers = ['yes', 'y', 'no', 'n']
-                more_answer = input("Do you want to see more raw data? (Yes or No): ").casefold()
+                more_answer = input("Do you want to see more raw data? (Yes/y or No/n): ").casefold()
                 if more_answer in more_answers:
                     if more_answer == 'yes' or more_answer == 'y':
                         n += 5
