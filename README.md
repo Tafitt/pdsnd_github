@@ -18,12 +18,14 @@ counts of each user type counts of each gender (only available for NYC and Chica
 
 
 ### Files used
-chicago.csv new_york_city.csv washington.csv
+•	chicago.csv  
+•	new_york_city.csv  
+•	washington.csv
 
 ### Credits
-•	https://stackoverflow.com/
-•	https://www.geeksforgeeks.org
-•	https://pandas.pydata.org
-•	https://www.python.org/
-•	https://www.programiz.com
-•	https://knowledge.udacity.com
+•	https://stackoverflow.com/  
+•	https://www.geeksforgeeks.org  
+•	https://pandas.pydata.org  
+•	https://www.python.org/  
+•	https://www.programiz.com  
+•	https://knowledge.udacity.com  
